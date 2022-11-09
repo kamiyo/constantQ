@@ -2,7 +2,7 @@
 
 #include <Eigen/Core>
 #include <Eigen/Sparse>
-#include <Eigen/FFT>
+#include <unsupported/Eigen/FFT>
 
 typedef unsigned int u32;
 typedef int s32;

@@ -2,6 +2,7 @@
 
 #include <fstream>
 #include <sstream>
+#include <iomanip>
 
 #include "typedefs.h"
 
@@ -29,7 +30,7 @@ template <typename T>
 bool WriteSparseMatrix(Eigen::SparseMatrix<T> &matrix, const u32 samplerate, const u32 binsPerOctave, double minF, double maxF)
 {
     std::stringstream filename_base;
-    filename_base << "CQ_" << samplerate << ".dat";
+    filename_base << "CQ_" << samplerate << "_" << std::fixed << std::setprecision(0) << minF << "_" << maxF << ".dat";
     std::ofstream file(filename_base.str().c_str(), std::fstream::out | std::fstream::binary);
     const u32 rows = (u32)matrix.innerSize();
     const u32 cols = (u32)matrix.outerSize();
